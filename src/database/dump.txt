@@ -1,0 +1,25 @@
+
+    public static void main(String[] args) throws Exception {
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//        String username = "root";
+//        String password = "07064783267";
+//        String url = "jdbc:mysql://127.0.0.1:3306/sql_store";
+//        Connection connection = DriverManager.getConnection(url, username, password);
+//        Statement statement = connection.createStatement();
+//        statement.execute("SELECT  * FROM customers");
+//    }
+
+
+    public static void main(String[] args) {
+
+        String username = "root";
+        String password = "07064783267";
+        String url = "jdbc:mysql://127.0.0.1:3306/sql_store";
+        try (Connection connection = DriverManager.getConnection(url, username, password); Statement statement = connection.createStatement()) {
+            statement.execute("SELECT  * FROM customers");
+        } catch (SQLException e) {
+            System.out.println("Something went wrong " + e.getMessage());
+        }
+    }
+
+    //            statement.execute("INSERT INTO contacts (name, phone, email) VALUES ('Mikel', '+234', 'mikel@gmail.com')");
